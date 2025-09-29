@@ -16,17 +16,28 @@
         
         body {
             background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                /* This will be replaced by your image */
+                url('https://drive.google.com/file/d/1R28XDj6DgOUSigZ89OXtO6B2cOElpp9E/view?usp=drive_link') 
+                no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-attachment: fixed;
+        }
+        
+        /* Overlay to ensure text readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
         }
         
         .container {
@@ -401,6 +412,9 @@
                         <select id="operator-name" name="operator-name">
                             <option value="Noor Alhuda" selected>Noor Alhuda</option>
                             <option value="Ahmed Hashim">Ahmed Hashim</option>
+                            <option value="Abdallah Yaagoob">Abdallah Yaagoob</option>
+                            <option value="Tajalsir">Tajalsir</option>
+                             <option value="Mosab Alsir">Mosab Alsir</option>
                         </select>
                     </div>
                     
@@ -464,8 +478,8 @@
                             <option value="4106W">4106W</option>
                             <option value="4106D">4106D</option>
                             <option value="4106H">4106H</option>
-                            <option value="3808">3808</option>
-                            <option value="B4106DP">B4106DP</option>
+                            <option value="3808B">3808B</option>
+                            <option value="4106DP">4106DP</option>
                         </select>
                     </div>
                     
@@ -609,10 +623,10 @@
                 case '4106H':
                     description = 'OP';
                     break;
-                case '3808':
+                case '3808B':
                     description = 'Mill Feed';
                     break;
-                case 'B4106DP':
+                case '4106DP':
                     description = 'DP';
                     break;
                 case '4106W':
@@ -646,10 +660,10 @@
                 case '4106H':
                     unit = 'BAR';
                     break;
-                case '3808':
+                case '3808B':
                     unit = 'TON/HOUR';
                     break;
-                case 'B4106DP':
+                case '4106DP':
                     unit = 'MBAR';
                     break;
                 case '4106W':
@@ -748,7 +762,7 @@
                     }
                     break;
                     
-                case '3808':
+                case '3808B':
                     if (value >= 135) {
                         status = 'High';
                         statusClass = 'status-high';
@@ -763,7 +777,7 @@
                     }
                     break;
                     
-                case 'B4106DP':
+                case '4106DP':
                     if (value >= 20) {
                         status = 'High';
                         statusClass = 'status-high';
@@ -925,4 +939,4 @@
         setInterval(updateDateTime, 60000);
     </script>
 </body>
-<
+</html>
