@@ -399,7 +399,8 @@
                 <div class="form-section">
                     <div class="form-group">
                         <label for="date-time"><i class="far fa-clock"></i> Date & Time</label>
-                        <input type="text" id="date-time" name="date-time" value="25/09/2025 7:08:12" readonly>
+                        <!-- CHANGED: Removed hardcoded value -->
+                        <input type="text" id="date-time" name="date-time" readonly>
                     </div>
                     
                     <div class="form-group">
@@ -520,7 +521,10 @@
             </div>
             
             <div class="button-group">
+                <button type="button" id="search-btn"><i class="fas fa-search"></i> Search</button>
                 <button type="submit" id="enter-btn"><i class="fas fa-paper-plane"></i> Enter</button>
+                <button type="button" id="clear-btn"><i class="fas fa-broom"></i> Clear</button>
+                <button type="button" id="edit-btn"><i class="fas fa-edit"></i> Edit</button>
             </div>
         </form>
         
@@ -530,6 +534,16 @@
     </div>
 
     <script>
+        // Set date and time immediately when the script loads
+        function setCurrentDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB');
+            document.getElementById('date-time').value = dateTimeString;
+        }
+
+        // Call the function immediately
+        setCurrentDateTime();
+
         // IMPORTANT: Replace this with your actual Google Apps Script URL
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAlW00FTeEFzMX8Ll_bA_CvrxFU0R0TcubXYUo8meJY2LP7mkFBhf1Imh3tjVgdqvL/exec";
         
@@ -570,7 +584,7 @@
             return rollData.rollNo;
         }
         
-        // Set current date and time
+        // Set current date and time (for updates)
         function updateDateTime() {
             const now = new Date();
             const dateTimeString = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB');
@@ -929,7 +943,6 @@
         
         // Initialize form
         manageRollNumbers();
-        updateDateTime();
         updateEquipmentDescription();
         updateParameterDescription();
         updateUnit();
